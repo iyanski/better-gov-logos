@@ -1,9 +1,7 @@
-name: Jekyll CI
+name: Deploy Jekyll site to Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 permissions:
@@ -28,41 +26,17 @@ jobs:
           ruby-version: '3.1'
           bundler-cache: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: |
-          npm ci
-          bundle install
-
-      - name: Build CLI tool
-        run: |
-          cd tools/cli
-          npm ci
-          npm run build
-
-      - name: Generate icon data
-        run: |
-          # Generate icon data for the website
-          node tools/cli/dist/index.js list --format json > icons.json
-
-      - name: Build Jekyll site
-        run: |
-          bundle exec jekyll build --verbose
-        env:
-          JEKYLL_ENV: production
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: './_site'
 
   deploy:
     environment:
