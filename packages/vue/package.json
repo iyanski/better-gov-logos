@@ -1,0 +1,40 @@
+{
+    "name": "@ph-gov-icons/vue",
+    "version": "1.0.0",
+    "description": "Vue components for Philippine government icons",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "echo 'Vue package - placeholder build'",
+        "clean": "rimraf dist",
+        "test": "jest",
+        "lint": "echo 'Vue package - no linting'"
+    },
+    "keywords": [
+        "philippine",
+        "government",
+        "icons",
+        "vue",
+        "components"
+    ],
+    "author": "Philippine Government Icons Team",
+    "license": "MIT",
+    "peerDependencies": {
+        "vue": ">=3.0.0"
+    },
+    "devDependencies": {
+        "vue": "^3.3.0",
+        "@vue/test-utils": "^2.4.0",
+        "vitest": "^0.34.6",
+        "jest": "^29.7.0",
+        "@types/jest": "^29.5.8",
+        "ts-jest": "^29.1.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

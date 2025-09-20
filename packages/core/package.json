@@ -1,0 +1,35 @@
+{
+    "name": "@ph-gov-icons/core",
+    "version": "1.0.0",
+    "description": "Core Philippine government icons and metadata",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "files": [
+        "icons/**/*",
+        "index.js",
+        "index.d.ts"
+    ],
+    "scripts": {
+        "build": "echo 'Core package - no build needed'",
+        "clean": "echo 'Core package - no clean needed'",
+        "test": "jest",
+        "lint": "echo 'Core package - no linting'"
+    },
+    "keywords": [
+        "philippine",
+        "government",
+        "icons",
+        "svg",
+        "core"
+    ],
+    "author": "Philippine Government Icons Team",
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "@types/jest": "^29.5.8",
+        "ts-jest": "^29.1.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
