@@ -105,7 +105,11 @@
         "cli:install": "cd tools/cli && npm run build && npm link",
         "cli:uninstall": "npm unlink -g bettergovicon",
         "website:generate": "node tools/generate-website-data.js",
-        "website:build": "npm run website:generate && echo 'Website data generated successfully'"
+        "website:build": "npm run website:generate && echo 'Website data generated successfully'",
+        "gallery:generate": "node tools/generate-gallery-data.js",
+        "gallery:build": "npm run gallery:generate && echo 'Gallery data generated successfully'",
+        "gallery:test": "node tools/create-sample-icon.js && npm run gallery:generate",
+        "gallery:demo": "npm run gallery:test && echo 'Demo gallery created! Open docs/index.html#gallery to view'"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",

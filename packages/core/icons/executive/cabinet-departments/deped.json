@@ -1,0 +1,19 @@
+{
+  "name": "deped",
+  "displayName": "Department of Education",
+  "acronym": "DepEd",
+  "branch": "executive",
+  "category": "cabinet-departments",
+  "description": "Official logo of the Department of Education of the Philippines",
+  "keywords": [
+    "education",
+    "school",
+    "learning",
+    "deped",
+    "philippines"
+  ],
+  "author": "Philippine Government Icons Team",
+  "version": "1.0.0",
+  "createdAt": "2025-09-20T14:11:44.855Z",
+  "path": "/Users/iyanski/Projects/xco/better-gov-logos/packages/core/icons/executive/cabinet-departments/deped.json"
+}

@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
@@ -220,6 +220,42 @@
             opacity: 0.8;
         }
 
+        /* Gallery Styles */
+        .icon-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-preview {
+            transition: all 0.2s ease;
+        }
+
+        .icon-card:hover .icon-preview {
+            background: #e3f2fd !important;
+        }
+
+        .gallery-branch h3 {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            padding: 1rem 0;
+        }
+
+        #icon-search,
+        #branch-filter,
+        #category-filter {
+            transition: border-color 0.2s ease;
+        }
+
+        #icon-search:focus,
+        #branch-filter:focus,
+        #category-filter:focus {
+            outline: none;
+            border-color: #0033A0;
+            box-shadow: 0 0 0 3px rgba(0, 51, 160, 0.1);
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -233,6 +269,17 @@
             .feature-grid {
                 grid-template-columns: 1fr;
             }
+
+            .icon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+            }
+
+            #icon-search,
+            #branch-filter,
+            #category-filter {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -243,6 +290,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#installation">Installation</a></li>
                 <li><a href="#usage">Usage</a></li>
                 <li><a href="https://github.com/iyanski/better-gov-logos">GitHub</a></li>
@@ -288,6 +336,48 @@
             </div>
         </section>
 
+        <section id="gallery" class="features">
+            <h2>🎨 Icon Gallery</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Browse our comprehensive collection of Philippine government icons organized by branch and category.
+            </p>
+
+            <!-- Gallery Stats -->
+            <div id="gallery-stats" class="feature-grid" style="margin-bottom: 3rem;">
+                <div class="feature">
+                    <h3 id="total-icons">0</h3>
+                    <p>Total Icons</p>
+                </div>
+                <div class="feature">
+                    <h3 id="branches-count">0</h3>
+                    <p>Government Branches</p>
+                </div>
+                <div class="feature">
+                    <h3 id="categories-count">0</h3>
+                    <p>Categories</p>
+                </div>
+            </div>
+
+            <!-- Search and Filter Controls -->
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <input type="text" id="icon-search" placeholder="Search icons..." style="padding: 12px 20px; border: 2px solid #ddd; border-radius: 8px; width: 300px; max-width: 100%; margin-right: 1rem;">
+                <select id="branch-filter" style="padding: 12px 20px; border: 2px solid #ddd; border-radius: 8px; margin-right: 1rem;">
+                    <option value="">All Branches</option>
+                </select>
+                <select id="category-filter" style="padding: 12px 20px; border: 2px solid #ddd; border-radius: 8px;">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+
+            <!-- Gallery Content -->
+            <div id="gallery-content">
+                <div style="text-align: center; padding: 3rem; color: #666;">
+                    <h3>No icons available yet</h3>
+                    <p>Icons will appear here once they are added to the library.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="installation" class="installation">
             <h2>📦 Installation</h2>
             <p>Choose the package that fits your project:</p>
@@ -307,7 +397,7 @@
                     <pre><code class="language-bash">npm install @ph-gov-icons/vue</code></pre>
                 </div>
             </div>
-            
+
             <h3>Angular</h3>
             <div class="code-container">
                 <div class="code-block" data-language="bash">
@@ -315,7 +405,7 @@
                     <pre><code class="language-bash">npm install @ph-gov-icons/angular</code></pre>
                 </div>
             </div>
-            
+
             <h3>CSS</h3>
             <div class="code-container">
                 <div class="code-block" data-language="bash">
@@ -323,7 +413,7 @@
                     <pre><code class="language-bash">npm install @ph-gov-icons/css</code></pre>
                 </div>
             </div>
-            
+
             <h3>Web Components</h3>
             <div class="code-container">
                 <div class="code-block" data-language="bash">
@@ -331,7 +421,7 @@
                     <pre><code class="language-bash">npm install @ph-gov-icons/web-components</code></pre>
                 </div>
             </div>
-            
+
             <h3>Svelte</h3>
             <div class="code-container">
                 <div class="code-block" data-language="bash">
@@ -379,7 +469,7 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
 &lt;/script&gt;</code></pre>
                 </div>
             </div>
-            
+
             <h3>CSS</h3>
             <div class="code-container">
                 <div class="code-block" data-language="html">
@@ -406,7 +496,7 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
             const codeBlock = button.parentElement;
             const codeElement = codeBlock.querySelector('code');
             const code = codeElement ? codeElement.textContent : codeBlock.textContent.replace('Copy', '').trim();
-            
+
             // Try to use the modern clipboard API
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(code).then(() => {
@@ -472,8 +562,176 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
             if (typeof Prism !== 'undefined') {
                 Prism.highlightAll();
             }
+
+            // Initialize Gallery
+            initializeGallery();
         });
-        
+
+        // Gallery functionality
+        async function initializeGallery() {
+            try {
+                const response = await fetch('gallery-data.json');
+                const data = await response.json();
+
+                // Update stats
+                document.getElementById('total-icons').textContent = data.stats.total;
+                document.getElementById('branches-count').textContent = Object.keys(data.stats.byBranch).length;
+                document.getElementById('categories-count').textContent = Object.keys(data.stats.byCategory).length;
+
+                // Populate filters
+                populateFilters(data);
+
+                // Display icons
+                displayIcons(data.icons);
+
+                // Set up search and filter functionality
+                setupSearchAndFilters(data);
+
+            } catch (error) {
+                console.error('Error loading gallery data:', error);
+                document.getElementById('gallery-content').innerHTML =
+                    '<div style="text-align: center; padding: 3rem; color: #e53e3e;"><h3>Error loading gallery</h3><p>Unable to load icon data.</p></div>';
+            }
+        }
+
+        function populateFilters(data) {
+            const branchFilter = document.getElementById('branch-filter');
+            const categoryFilter = document.getElementById('category-filter');
+
+            // Add branch options
+            Object.keys(data.stats.byBranch).forEach(branch => {
+                const option = document.createElement('option');
+                option.value = branch;
+                option.textContent = branch.charAt(0).toUpperCase() + branch.slice(1);
+                branchFilter.appendChild(option);
+            });
+
+            // Add category options
+            Object.keys(data.stats.byCategory).forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        function displayIcons(icons, filteredIcons = null) {
+            const galleryContent = document.getElementById('gallery-content');
+            const iconsToShow = filteredIcons || icons;
+
+            if (iconsToShow.length === 0) {
+                galleryContent.innerHTML = '<div style="text-align: center; padding: 3rem; color: #666;"><h3>No icons found</h3><p>Try adjusting your search or filters.</p></div>';
+                return;
+            }
+
+            // Group icons by branch
+            const groupedIcons = iconsToShow.reduce((acc, icon) => {
+                if (!acc[icon.branch]) {
+                    acc[icon.branch] = [];
+                }
+                acc[icon.branch].push(icon);
+                return acc;
+            }, {});
+
+            let html = '';
+            Object.entries(groupedIcons).forEach(([branch, branchIcons]) => {
+                html += `
+                    <div class="gallery-branch" style="margin-bottom: 3rem;">
+                        <h3 style="color: #0033A0; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #0033A0;">
+                            🏛️ ${branch.charAt(0).toUpperCase() + branch.slice(1)} (${branchIcons.length} icons)
+                        </h3>
+                        <div class="icon-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                `;
+
+                branchIcons.forEach(icon => {
+                    html += `
+                        <div class="icon-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem; text-align: center; background: white; transition: transform 0.2s ease;">
+                            <div class="icon-preview" style="height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; background: #f8f9fa; border-radius: 4px;">
+                                <span style="font-size: 2rem;">🏛️</span>
+                            </div>
+                            <h4 style="margin: 0.5rem 0; color: #0033A0; font-size: 1rem;">${icon.displayName}</h4>
+                            <p style="margin: 0; color: #666; font-size: 0.9rem;">${icon.acronym}</p>
+                            <p style="margin: 0.5rem 0; color: #888; font-size: 0.8rem;">${icon.category}</p>
+                            <div class="icon-actions" style="margin-top: 0.5rem;">
+                                <button onclick="copyIconCode('${icon.name}')" style="background: #0033A0; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer; margin-right: 0.25rem;">Copy</button>
+                                <button onclick="viewIconDetails('${icon.name}')" style="background: #FF6B35; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Details</button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += '</div></div>';
+            });
+
+            galleryContent.innerHTML = html;
+        }
+
+        function setupSearchAndFilters(data) {
+            const searchInput = document.getElementById('icon-search');
+            const branchFilter = document.getElementById('branch-filter');
+            const categoryFilter = document.getElementById('category-filter');
+
+            function filterIcons() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedBranch = branchFilter.value;
+                const selectedCategory = categoryFilter.value;
+
+                const filteredIcons = data.icons.filter(icon => {
+                    const matchesSearch = !searchTerm ||
+                        icon.name.toLowerCase().includes(searchTerm) ||
+                        icon.displayName.toLowerCase().includes(searchTerm) ||
+                        icon.acronym.toLowerCase().includes(searchTerm) ||
+                        icon.description.toLowerCase().includes(searchTerm);
+
+                    const matchesBranch = !selectedBranch || icon.branch === selectedBranch;
+                    const matchesCategory = !selectedCategory || icon.category === selectedCategory;
+
+                    return matchesSearch && matchesBranch && matchesCategory;
+                });
+
+                displayIcons(data.icons, filteredIcons);
+            }
+
+            searchInput.addEventListener('input', filterIcons);
+            branchFilter.addEventListener('change', filterIcons);
+            categoryFilter.addEventListener('change', filterIcons);
+        }
+
+        function copyIconCode(iconName) {
+            const code = `import { ${iconName} } from '@ph-gov-icons/react';`;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(code).then(() => {
+                    showCopySuccess();
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showCopySuccess();
+            }
+        }
+
+        function viewIconDetails(iconName) {
+            alert(`Icon: ${iconName}\n\nThis would show detailed information about the icon, including usage examples and visual previews.`);
+        }
+
+        function showCopySuccess() {
+            // Create a temporary success message
+            const success = document.createElement('div');
+            success.textContent = 'Copied to clipboard!';
+            success.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #48bb78; color: white; padding: 10px 20px; border-radius: 4px; z-index: 1000;';
+            document.body.appendChild(success);
+
+            setTimeout(() => {
+                document.body.removeChild(success);
+            }, 2000);
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
