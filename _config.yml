@@ -1,8 +1,8 @@
 # Site settings
 title: "🇵🇭 Philippine Government Icons"
 description: "A comprehensive library of Philippine government icons and symbols for developers"
-url: "https://iyanski.github.io"
-baseurl: "/better-gov-logos"
+url: "https://bettergovlogos.github.io"
+baseurl: ""
 
 # Build settings
 markdown: kramdown

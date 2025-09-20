@@ -241,10 +241,10 @@ The CLI automatically recognizes these Philippine government agencies:
 
 ## 📚 Documentation
 
-- 📖 [Full Documentation](https://iyanski.github.io/better-gov-logos/)
-- 🎨 [Icon Gallery](https://iyanski.github.io/better-gov-logos/#icons)
-- 💻 [Examples](https://iyanski.github.io/better-gov-logos/#examples)
-- 🚀 [Getting Started Guide](https://iyanski.github.io/better-gov-logos/#getting-started)
+- 📖 [Full Documentation](https://bettergovlogos.github.io/)
+- 🎨 [Icon Gallery](https://bettergovlogos.github.io/icons/)
+- 💻 [Examples](https://bettergovlogos.github.io/#examples)
+- 🚀 [Getting Started Guide](https://bettergovlogos.github.io/installation/)
 
 ## 🏛️ Icon Categories
 
@@ -663,7 +663,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📧 **Email**: support@ph-gov-icons.dev
 - 💬 **Discord**: [Join our community](https://discord.gg/ph-gov-icons)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/your-org/better-gov-logos/issues)
-- 📖 **Documentation**: [iyanski.github.io/better-gov-logos](https://iyanski.github.io/better-gov-logos/)
+- 📖 **Documentation**: [bettergovlogos.github.io](https://bettergovlogos.github.io/)
 
 ## 🌟 Show Your Support
 
