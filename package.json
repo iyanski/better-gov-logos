@@ -103,7 +103,9 @@
         "icon:remove": "node tools/cli/dist/index.js remove",
         "icon:init": "node tools/cli/dist/index.js init",
         "cli:install": "cd tools/cli && npm run build && npm link",
-        "cli:uninstall": "npm unlink -g bettergovicon"
+        "cli:uninstall": "npm unlink -g bettergovicon",
+        "website:generate": "node tools/generate-website-data.js",
+        "website:build": "npm run website:generate && echo 'Website data generated successfully'"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
