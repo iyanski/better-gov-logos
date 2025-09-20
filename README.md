@@ -651,7 +651,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: iyanski@github.com
 - 💬 **GitHub Discussions**: [Join our community](https://github.com/iyanski/better-gov-logos/discussions)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/iyanski/better-gov-logos/issues)
 - 📖 **Documentation**: [https://iyanski.github.io/better-gov-logos](https://iyanski.github.io/better-gov-logos/)
