@@ -25,7 +25,13 @@ async function generateGalleryData() {
 
         // Extract JSON from the output (remove npm command output)
         const jsonMatch = cliOutput.match(/\[[\s\S]*\]/);
-        const icons = jsonMatch ? JSON.parse(jsonMatch[0]) : [];
+        const rawIcons = jsonMatch ? JSON.parse(jsonMatch[0]) : [];
+
+        // Convert absolute paths to relative paths
+        const icons = rawIcons.map(icon => ({
+            ...icon,
+            path: path.relative(process.cwd(), icon.path)
+        }));
 
         // Organize icons by branch and category
         const organizedData = {

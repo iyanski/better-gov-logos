@@ -16,7 +16,7 @@
       "author": "Ian Tusil",
       "version": "1.0.0",
       "createdAt": "2025-09-20T14:15:29.313Z",
-      "path": "/Users/iyanski/Projects/xco/better-gov-logos/packages/core/icons/executive/office-of-the-president/department-of-agricultural-reform.json"
+      "path": "packages/core/icons/executive/office-of-the-president/department-of-agricultural-reform.json"
     },
     {
       "name": "deped",
@@ -35,7 +35,7 @@
       "author": "Philippine Government Icons Team",
       "version": "1.0.0",
       "createdAt": "2025-09-20T14:11:44.855Z",
-      "path": "/Users/iyanski/Projects/xco/better-gov-logos/packages/core/icons/executive/cabinet-departments/deped.json"
+      "path": "packages/core/icons/executive/cabinet-departments/deped.json"
     }
   ],
   "stats": {
@@ -47,9 +47,9 @@
       "office-of-the-president": 1,
       "cabinet-departments": 1
     },
-    "latestUpdate": "2025-09-20T14:16:00.861Z"
+    "latestUpdate": "2025-09-20T14:21:41.130Z"
   },
-  "generatedAt": "2025-09-20T14:16:00.861Z",
+  "generatedAt": "2025-09-20T14:21:41.131Z",
   "version": "1.0.0",
   "groupedIcons": {
     "executive": [
@@ -69,7 +69,7 @@
         "author": "Ian Tusil",
         "version": "1.0.0",
         "createdAt": "2025-09-20T14:15:29.313Z",
-        "path": "/Users/iyanski/Projects/xco/better-gov-logos/packages/core/icons/executive/office-of-the-president/department-of-agricultural-reform.json"
+        "path": "packages/core/icons/executive/office-of-the-president/department-of-agricultural-reform.json"
       },
       {
         "name": "deped",
@@ -88,7 +88,7 @@
         "author": "Philippine Government Icons Team",
         "version": "1.0.0",
         "createdAt": "2025-09-20T14:11:44.855Z",
-        "path": "/Users/iyanski/Projects/xco/better-gov-logos/packages/core/icons/executive/cabinet-departments/deped.json"
+        "path": "packages/core/icons/executive/cabinet-departments/deped.json"
       }
     ]
   }

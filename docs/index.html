@@ -372,8 +372,12 @@
             <!-- Gallery Content -->
             <div id="gallery-content">
                 <div style="text-align: center; padding: 3rem; color: #666;">
-                    <h3>No icons available yet</h3>
-                    <p>Icons will appear here once they are added to the library.</p>
+                    <h3>Loading gallery...</h3>
+                    <p>Please wait while we load the icon data.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="debug-gallery.html" target="_blank" style="color: #0033A0; text-decoration: none; margin-right: 1rem;">🔍 Debug Gallery</a>
+                        <a href="minimal-gallery-test.html" target="_blank" style="color: #0033A0; text-decoration: none;">🧪 Test Gallery</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -564,19 +568,32 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
             }
 
             // Initialize Gallery
+            console.log('DOM loaded, initializing gallery...');
             initializeGallery();
         });
 
         // Gallery functionality
         async function initializeGallery() {
             try {
+                console.log('Loading gallery data...');
+                console.log('Gallery function called');
                 const response = await fetch('gallery-data.json');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 const data = await response.json();
+                console.log('Gallery data loaded:', data);
 
                 // Update stats
-                document.getElementById('total-icons').textContent = data.stats.total;
-                document.getElementById('branches-count').textContent = Object.keys(data.stats.byBranch).length;
-                document.getElementById('categories-count').textContent = Object.keys(data.stats.byCategory).length;
+                const totalIconsEl = document.getElementById('total-icons');
+                const branchesCountEl = document.getElementById('branches-count');
+                const categoriesCountEl = document.getElementById('categories-count');
+
+                if (totalIconsEl) totalIconsEl.textContent = data.stats.total;
+                if (branchesCountEl) branchesCountEl.textContent = Object.keys(data.stats.byBranch).length;
+                if (categoriesCountEl) categoriesCountEl.textContent = Object.keys(data.stats.byCategory).length;
 
                 // Populate filters
                 populateFilters(data);
@@ -589,8 +606,21 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
 
             } catch (error) {
                 console.error('Error loading gallery data:', error);
-                document.getElementById('gallery-content').innerHTML =
-                    '<div style="text-align: center; padding: 3rem; color: #e53e3e;"><h3>Error loading gallery</h3><p>Unable to load icon data.</p></div>';
+                console.error('Error details:', error.stack);
+
+                const galleryContent = document.getElementById('gallery-content');
+                if (galleryContent) {
+                    galleryContent.innerHTML =
+                        `<div style="text-align: center; padding: 3rem; color: #e53e3e;">
+                            <h3>Error loading gallery</h3>
+                            <p>Unable to load icon data.</p>
+                            <p><strong>Error:</strong> ${error.message}</p>
+                            <p>Check browser console for more details.</p>
+                            <button onclick="location.reload()" style="background: #0033A0; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px;">Retry</button>
+                        </div>`;
+                } else {
+                    console.error('Gallery content element not found!');
+                }
             }
         }
 
