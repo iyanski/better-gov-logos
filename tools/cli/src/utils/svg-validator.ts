@@ -115,7 +115,7 @@ function findStrokeWidths(element: any): number[] {
       if (obj.$ && obj.$.strokeWidth) {
         widths.push(Number(obj.$.strokeWidth));
       }
-      if (obj.$ && obj.$.stroke-width) {
+      if (obj.$ && obj.$['stroke-width']) {
         widths.push(Number(obj.$['stroke-width']));
       }
       

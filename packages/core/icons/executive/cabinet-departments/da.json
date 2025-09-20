@@ -1,0 +1,18 @@
+{
+    "name": "da",
+    "displayName": "Department of Agriculture",
+    "officialName": "Department of Agriculture",
+    "acronym": "DA",
+    "branch": "executive",
+    "category": "cabinet-departments",
+    "description": "Official logo of the Department of Agriculture of the Philippines",
+    "keywords": ["da", "agriculture", "government", "philippines", "farming", "food", "rural"],
+    "author": "Philippine Government Icons Team",
+    "version": "1.0.0",
+    "license": "MIT",
+    "isOfficial": true,
+    "hasPermission": true,
+    "officialWebsite": "https://www.da.gov.ph",
+    "createdAt": "2024-01-20T12:00:00.000Z",
+    "updatedAt": "2024-01-20T12:00:00.000Z"
+}

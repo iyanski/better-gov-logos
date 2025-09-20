@@ -7,6 +7,7 @@ import { addIcon } from './commands/add-icon';
 import { validateIcon } from './commands/validate-icon';
 import { listIcons } from './commands/list-icons';
 import { generateComponents } from './commands/generate-components';
+import { processIcon } from './commands/process-icon';
 import { version } from '../package.json';
 
 const program = new Command();
@@ -27,6 +28,20 @@ program
       await addIcon(svgPath, options);
     } catch (error) {
       console.error(chalk.red('Error adding icon:'), error);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('process <svg-path>')
+  .description('Process an SVG with auto-detection (recommended for common agencies)')
+  .option('-y, --yes', 'Skip confirmation prompts')
+  .option('--dry-run', 'Show what would be created without making changes')
+  .action(async (svgPath: string, options: any) => {
+    try {
+      await processIcon(svgPath, options);
+    } catch (error) {
+      console.error(chalk.red('Error processing icon:'), error);
       process.exit(1);
     }
   });

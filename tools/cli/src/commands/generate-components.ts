@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import ora from 'ora';
 import fs from 'fs-extra';
 import path from 'path';
-import { generateComponents } from '../utils/component-generator';
+import { generateComponents as generateComponentsUtil } from '../utils/component-generator';
 
 export async function generateComponents(options: any) {
   const spinner = ora('Generating components...').start();
@@ -32,7 +32,7 @@ export async function generateComponents(options: any) {
         
         if (await fs.pathExists(svgPath)) {
           const svgContent = await fs.readFile(svgPath, 'utf8');
-          await generateComponents(metadata.name, svgContent, metadata);
+          await generateComponentsUtil(metadata.name, svgContent, metadata);
           processed++;
         } else {
           console.warn(chalk.yellow(`Warning: SVG file not found for ${metadata.name}`));

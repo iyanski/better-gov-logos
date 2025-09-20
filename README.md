@@ -94,6 +94,90 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
 <ph-icon name="deped" size="24" color="#1B5E20"></ph-icon>
 ```
 
+## 🛠️ CLI Tool Installation
+
+### Install the `bettergovicon` Command
+
+The `bettergovicon` CLI tool makes it incredibly easy to add new Philippine government icons to the library.
+
+#### **Global Installation**
+```bash
+# Install globally from the project
+cd tools/cli
+npm install -g .
+
+# Or use npm link
+npm link
+
+# Verify installation
+bettergovicon --version
+```
+
+#### **Using the CLI Tool**
+```bash
+# Process with auto-detection (recommended for common agencies)
+bettergovicon process DA.svg
+
+# Interactive mode for any agency
+bettergovicon add path/to/your-icon.svg
+
+# Validate an SVG before processing
+bettergovicon validate path/to/your-icon.svg
+
+# List all icons in the library
+bettergovicon list
+
+# Generate components for all icons
+bettergovicon generate
+
+# Get help
+bettergovicon --help
+```
+
+#### **Auto-Detection Support**
+The CLI automatically recognizes these Philippine government agencies:
+- **DA** - Department of Agriculture
+- **DepEd** - Department of Education
+- **DOH** - Department of Health
+- **DOTr** - Department of Transportation
+- **DPWH** - Department of Public Works and Highways
+- **DTI** - Department of Trade and Industry
+- **DOLE** - Department of Labor and Employment
+- **DSWD** - Department of Social Welfare and Development
+- **DILG** - Department of Interior and Local Government
+- **DND** - Department of National Defense
+- **DOF** - Department of Finance
+- **DOJ** - Department of Justice
+- **DENR** - Department of Environment and Natural Resources
+- **DOE** - Department of Energy
+- **DOT** - Department of Tourism
+- **DOST** - Department of Science and Technology
+- **DICT** - Department of Information and Communications Technology
+- **DFA** - Department of Foreign Affairs
+- **DBM** - Department of Budget and Management
+- **DAR** - Department of Agrarian Reform
+
+#### **What the CLI Does Automatically**
+1. **SVG Processing**: Normalizes viewBox to 24x24, optimizes for performance
+2. **Component Generation**: Creates React, Vue, Angular, Web Components, and CSS
+3. **File Organization**: Creates proper directory structure and updates index files
+4. **Test Page**: Generates visual test page with all size and color variants
+5. **Metadata**: Creates comprehensive icon metadata and documentation
+
+#### **Choosing Between Options**
+
+**Use `bettergovicon` CLI when:**
+- ✅ You want to use the tool from anywhere on your system
+- ✅ You're working on multiple projects
+- ✅ You prefer a standalone command-line tool
+- ✅ You want the latest features and updates
+
+**Use Yarn Scripts when:**
+- ✅ You're working within the project directory
+- ✅ You want to use the project's local dependencies
+- ✅ You're contributing to the project development
+- ✅ You prefer npm/yarn workflow integration
+
 ## 📚 Documentation
 
 - 📖 [Full Documentation](https://ph-gov-icons.dev/docs)
@@ -216,7 +300,7 @@ We welcome contributions from the community! Here's how you can help:
 
 ### 📝 Adding New Icons
 
-We've made it super easy to add new government icons using our CLI tool! Here are two ways to contribute:
+We've made it super easy to add new government icons using our `bettergovicon` CLI tool! Here are two ways to contribute:
 
 #### 🚀 **Easy Way: Using the CLI Tool (Recommended)**
 
@@ -225,12 +309,23 @@ We've made it super easy to add new government icons using our CLI tool! Here ar
    - Make sure you have permission to use the government logo
 
 2. **Add the Icon**
+
+   **Option A: Using `bettergovicon` CLI (Recommended)**
    ```bash
-   # Using yarn (recommended)
-   yarn icon:add path/to/your-icon.svg
+   # Process with auto-detection (recommended for common agencies)
+   bettergovicon process path/to/DA.svg
    
-   # Or using npm
-   npm run icon:add path/to/your-icon.svg
+   # Interactive mode for any agency
+   bettergovicon add path/to/your-icon.svg
+   ```
+
+   **Option B: Using Yarn Scripts**
+   ```bash
+   # Process with auto-detection
+   yarn icon:process path/to/DA.svg
+   
+   # Interactive mode
+   yarn icon:add path/to/your-icon.svg
    ```
 
 3. **Follow the Interactive Guide**
@@ -290,8 +385,33 @@ We've made it super easy to add new government icons using our CLI tool! Here ar
 
 Our CLI tool provides several helpful commands:
 
+**Option A: Using `bettergovicon` CLI (Recommended)**
 ```bash
-# Add a new icon (interactive)
+# Process with auto-detection (recommended for common agencies)
+bettergovicon process path/to/DA.svg
+
+# Interactive mode for any agency
+bettergovicon add path/to/icon.svg
+
+# Validate an SVG before adding
+bettergovicon validate path/to/icon.svg
+
+# List all existing icons
+bettergovicon list
+
+# Generate components for all icons
+bettergovicon generate
+
+# Get help
+bettergovicon --help
+```
+
+**Option B: Using Yarn Scripts**
+```bash
+# Process with auto-detection
+yarn icon:process path/to/DA.svg
+
+# Interactive mode
 yarn icon:add path/to/icon.svg
 
 # Validate an SVG before adding
@@ -311,6 +431,16 @@ yarn icon:init
 
 Before adding an icon, you can validate it:
 
+**Option A: Using `bettergovicon` CLI**
+```bash
+# Basic validation
+bettergovicon validate ./my-icon.svg
+
+# Verbose validation with details
+bettergovicon validate ./my-icon.svg --verbose
+```
+
+**Option B: Using Yarn Scripts**
 ```bash
 # Basic validation
 yarn icon:validate ./my-icon.svg
@@ -341,12 +471,22 @@ The validator checks for:
 
 Here's a complete example of adding a Department of Education icon:
 
+**Option A: Using `bettergovicon` CLI**
+```bash
+# 1. Validate your SVG first
+bettergovicon validate ./deped-logo.svg
+
+# 2. Add the icon
+bettergovicon process ./deped-logo.svg
+```
+
+**Option B: Using Yarn Scripts**
 ```bash
 # 1. Validate your SVG first
 yarn icon:validate ./deped-logo.svg
 
 # 2. Add the icon
-yarn icon:add ./deped-logo.svg
+yarn icon:process ./deped-logo.svg
 ```
 
 The CLI will ask:

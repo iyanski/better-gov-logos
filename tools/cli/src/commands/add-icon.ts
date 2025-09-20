@@ -4,7 +4,7 @@ import ora from 'ora';
 import fs from 'fs-extra';
 import path from 'path';
 import { optimizeSvg } from '../utils/svg-optimizer';
-import { generateMetadata } from '../utils/metadata-generator';
+// import { generateMetadata } from '../utils/metadata-generator';
 import { generateComponents } from '../utils/component-generator';
 import { validateSvg } from '../utils/svg-validator';
 import { IconMetadata, GovernmentBranch, IconCategory } from '../types';
@@ -155,7 +155,7 @@ export async function addIcon(svgPath: string, options: any) {
       branch: answers.branch,
       category: answers.category,
       description: answers.description,
-      keywords: answers.keywords.split(',').map(k => k.trim()),
+      keywords: answers.keywords.split(',').map((k: string) => k.trim()),
       author: answers.author,
       version: '1.0.0',
       license: 'MIT',
@@ -201,9 +201,20 @@ export async function addIcon(svgPath: string, options: any) {
     const optimizedSvg = await optimizeSvg(svgPath);
     spinner.succeed('SVG optimized');
 
-    // Create directories
+    // Create all necessary directories
     const iconDir = path.join(process.cwd(), 'packages/core/icons', answers.branch, answers.category);
+    const reactIconsDir = path.join(process.cwd(), 'packages/react/src/icons');
+    const vueIconsDir = path.join(process.cwd(), 'packages/vue/src/icons');
+    const cssIconsDir = path.join(process.cwd(), 'packages/css/src/icons');
+    const angularIconsDir = path.join(process.cwd(), 'packages/angular/src/icons');
+    const webComponentsIconsDir = path.join(process.cwd(), 'packages/web-components/src/icons');
+    
     await fs.ensureDir(iconDir);
+    await fs.ensureDir(reactIconsDir);
+    await fs.ensureDir(vueIconsDir);
+    await fs.ensureDir(cssIconsDir);
+    await fs.ensureDir(angularIconsDir);
+    await fs.ensureDir(webComponentsIconsDir);
 
     // Save SVG file
     const svgFilePath = path.join(iconDir, `${iconName}.svg`);
@@ -227,13 +238,31 @@ export async function addIcon(svgPath: string, options: any) {
     console.log(chalk.blue('📁 Files created:'));
     console.log(chalk.gray(`  - ${svgFilePath}`));
     console.log(chalk.gray(`  - ${metadataPath}`));
-    console.log(chalk.gray(`  - Components in packages/*/src/icons/`));
+    console.log(chalk.gray(`  - packages/react/src/icons/${iconName}.tsx`));
+    console.log(chalk.gray(`  - packages/vue/src/icons/${iconName}.vue`));
+    console.log(chalk.gray(`  - packages/angular/src/icons/${iconName}.ts`));
+    console.log(chalk.gray(`  - packages/web-components/src/icons/${iconName}.ts`));
+    console.log(chalk.gray(`  - packages/css/src/icons/${iconName}.css`));
+    console.log(chalk.gray(`  - test-${iconName}.html`));
+
+    console.log(chalk.blue('\n🎯 Icon Details:'));
+    console.log(chalk.gray(`  Name: ${metadata.displayName}`));
+    console.log(chalk.gray(`  Acronym: ${metadata.acronym}`));
+    console.log(chalk.gray(`  Branch: ${metadata.branch}`));
+    console.log(chalk.gray(`  Category: ${metadata.category}`));
+    console.log(chalk.gray(`  Description: ${metadata.description}`));
 
     console.log(chalk.yellow('\n📝 Next steps:'));
-    console.log(chalk.gray('1. Review the generated files'));
-    console.log(chalk.gray('2. Test the components'));
-    console.log(chalk.gray('3. Update documentation'));
-    console.log(chalk.gray('4. Submit a pull request'));
+    console.log(chalk.gray('1. Open test-' + iconName + '.html to preview the icon'));
+    console.log(chalk.gray('2. Review the generated components'));
+    console.log(chalk.gray('3. Test the components in your framework'));
+    console.log(chalk.gray('4. Update documentation if needed'));
+    console.log(chalk.gray('5. Submit a pull request'));
+
+    console.log(chalk.cyan('\n🚀 Usage examples:'));
+    console.log(chalk.gray('React: import { ' + metadata.acronym + ' } from "@ph-gov-icons/react"'));
+    console.log(chalk.gray('Vue: import { ' + metadata.acronym + ' } from "@ph-gov-icons/vue"'));
+    console.log(chalk.gray('CSS: <i class="ph-icon-' + iconName + ' ph-icon-lg"></i>'));
 
   } catch (error) {
     spinner.fail('Failed to add icon');
