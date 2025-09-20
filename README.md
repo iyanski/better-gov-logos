@@ -1,9 +1,10 @@
 # 🇵🇭 Philippine Government Icons
 
-[![npm version](https://badge.fury.io/js/%40ph-gov-icons%2Fcore.svg)](https://badge.fury.io/js/%40ph-gov-icons%2Fcore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Build Status](https://github.com/your-org/better-gov-logos/workflows/CI/badge.svg)](https://github.com/your-org/better-gov-logos/actions)
+[![Build Status](https://github.com/iyanski/better-gov-logos/workflows/CI/badge.svg)](https://github.com/iyanski/better-gov-logos/actions)
+
+> **🚧 Development Status**: This project is currently in active development. The initial release will include packages for React, Vue, Angular, CSS, and Web Components.
 
 A comprehensive library of Philippine government icons and symbols, designed for developers who need to represent government agencies, departments, and official symbols in their applications.
 
@@ -21,37 +22,30 @@ A comprehensive library of Philippine government icons and symbols, designed for
 
 ### Installation
 
-Choose the package that fits your project:
+**Note**: This project is currently in development. The packages will be available on npm once the initial release is ready.
+
+For now, you can use the icons directly from the source:
 
 ```bash
-# For React projects
-npm install @ph-gov-icons/react
+# Clone the repository
+git clone https://github.com/iyanski/better-gov-logos.git
+cd better-gov-logos
 
-# For Vue projects
-npm install @ph-gov-icons/vue
-
-# For CSS/HTML projects
-npm install @ph-gov-icons/css
-
-# For Angular projects
-npm install @ph-gov-icons/angular
-
-# For Web Components
-npm install @ph-gov-icons/web-components
+# Install dependencies
+npm install
 ```
 
 ### Usage Examples
 
 #### React
 ```tsx
-import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/react';
+// Import from local source (during development)
+import { DepartmentOfAgriculturalReform } from './packages/react/src/icons/department-of-agricultural-reform';
 
 function App() {
   return (
     <div>
-      <PhFlag size={24} color="#0033A0" />
-      <Malacanang size={32} />
-      <DepEd size={24} color="#1B5E20" />
+      <DepartmentOfAgriculturalReform size={24} color="#0033A0" />
     </div>
   );
 }
@@ -61,14 +55,13 @@ function App() {
 ```vue
 <template>
   <div>
-    <PhFlag :size="24" color="#0033A0" />
-    <Malacanang :size="32" />
-    <DepEd :size="24" color="#1B5E20" />
+    <DepartmentOfAgriculturalReform :size="24" color="#0033A0" />
   </div>
 </template>
 
 <script setup>
-import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
+// Import from local source (during development)
+import DepartmentOfAgriculturalReform from './packages/vue/src/icons/department-of-agricultural-reform.vue';
 </script>
 ```
 
@@ -77,21 +70,21 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ph-gov-icons/css@latest/ph-gov-icons.css">
+  <link rel="stylesheet" href="./packages/css/src/index.css">
 </head>
 <body>
-  <i class="ph-icon ph-icon-ph-flag"></i>
-  <i class="ph-icon ph-icon-malacanang"></i>
-  <i class="ph-icon ph-icon-deped"></i>
+  <i class="ph-icon ph-icon-department-of-agricultural-reform"></i>
 </body>
 </html>
 ```
 
 #### Web Components
 ```html
-<ph-icon name="ph-flag" size="24" color="#0033A0"></ph-icon>
-<ph-icon name="malacanang" size="32"></ph-icon>
-<ph-icon name="deped" size="24" color="#1B5E20"></ph-icon>
+<!-- Import the web component -->
+<script type="module" src="./packages/web-components/src/index.ts"></script>
+
+<!-- Use the component -->
+<ph-icon name="department-of-agricultural-reform" size="24" color="#0033A0"></ph-icon>
 ```
 
 ## 🛠️ CLI Tool Installation
@@ -233,17 +226,17 @@ The CLI automatically recognizes these Philippine government agencies:
 - ✅ You prefer a standalone command-line tool
 - ✅ You want the latest features and updates
 
-**Use Yarn Scripts when:**
+**Use npm Scripts when:**
 - ✅ You're working within the project directory
 - ✅ You want to use the project's local dependencies
 - ✅ You're contributing to the project development
-- ✅ You prefer npm/yarn workflow integration
+- ✅ You prefer npm workflow integration
 
 ## 📚 Documentation
 
 - 📖 [Full Documentation](https://iyanski.github.io/better-gov-logos/)
 - 💻 [Examples](https://iyanski.github.io/better-gov-logos/#examples)
-- 🚀 [Getting Started Guide](https://iyanski.github.io/better-gov-logos/installation/)
+- 🚀 [Getting Started Guide](https://iyanski.github.io/better-gov-logos/#installation)
 
 ## 🏛️ Icon Categories
 
@@ -293,15 +286,15 @@ The CLI automatically recognizes these Philippine government agencies:
 ### Tree-shaking (React/Vue)
 ```tsx
 // ✅ Good - imports only what you need
-import { PhFlag } from '@ph-gov-icons/react';
+import { DepartmentOfAgriculturalReform } from './packages/react/src/icons/department-of-agricultural-reform';
 
 // ❌ Avoid - imports entire library
-import * as PhIcons from '@ph-gov-icons/react';
+import * as PhIcons from './packages/react/src';
 ```
 
 ### Custom Styling
 ```tsx
-<PhFlag 
+<DepartmentOfAgriculturalReform 
   size={24} 
   color="#0033A0" 
   className="custom-icon"
@@ -312,9 +305,8 @@ import * as PhIcons from '@ph-gov-icons/react';
 ### Dynamic Icons
 ```tsx
 const iconMap = {
-  'ph-flag': PhFlag,
-  'malacanang': Malacanang,
-  'deped': DepEd
+  'department-of-agricultural-reform': DepartmentOfAgriculturalReform,
+  // Add more icons as they become available
 };
 
 const IconComponent = iconMap[iconName];
@@ -326,12 +318,12 @@ return <IconComponent size={24} />;
 We welcome contributions from the community! Here's how you can help:
 
 ### 🐛 Reporting Issues
-- Use our [issue template](https://github.com/your-org/better-gov-logos/issues/new?template=bug_report.md)
+- Use our [issue template](https://github.com/iyanski/better-gov-logos/issues/new?template=bug_report.md)
 - Include screenshots and steps to reproduce
 - Check existing issues before creating new ones
 
 ### 💡 Suggesting New Icons
-- Use our [icon request template](https://github.com/your-org/better-gov-logos/issues/new?template=icon_request.md)
+- Use our [icon request template](https://github.com/iyanski/better-gov-logos/issues/new?template=icon_request.md)
 - Provide official government sources
 - Include context about the agency/department
 
@@ -339,7 +331,7 @@ We welcome contributions from the community! Here's how you can help:
 
 1. **Fork and Clone**
    ```bash
-   git clone https://github.com/your-username/better-gov-logos.git
+   git clone https://github.com/iyanski/better-gov-logos.git
    cd better-gov-logos
    ```
 
@@ -401,13 +393,13 @@ We've made it super easy to add new government icons using our `bettergovicon` C
    npm run icon:add path/to/your-icon.svg
    ```
 
-   **Option C: Using Yarn Scripts**
+   **Option C: Using npm Scripts**
    ```bash
    # Process with auto-detection
-   yarn icon:process path/to/DA.svg
+   npm run icon:process path/to/DA.svg
    
    # Interactive mode
-   yarn icon:add path/to/your-icon.svg
+   npm run icon:add path/to/your-icon.svg
    ```
 
 3. **Follow the Interactive Guide**
@@ -457,7 +449,7 @@ We've made it super easy to add new government icons using our `bettergovicon` C
 
 3. **Generate Components**
    ```bash
-   yarn icon:generate
+   npm run icon:generate
    ```
 
 4. **Update Documentation**
@@ -498,25 +490,25 @@ bettergovicon remove icon-name --force
 bettergovicon --help
 ```
 
-**Option B: Using Yarn Scripts**
+**Option B: Using npm Scripts**
 ```bash
 # Process with auto-detection
-yarn icon:process path/to/DA.svg
+npm run icon:process path/to/DA.svg
 
 # Interactive mode
-yarn icon:add path/to/icon.svg
+npm run icon:add path/to/icon.svg
 
 # Validate an SVG before adding
-yarn icon:validate path/to/icon.svg
+npm run icon:validate path/to/icon.svg
 
 # List all existing icons
-yarn icon:list
+npm run icon:list
 
 # Generate components for all icons
-yarn icon:generate
+npm run icon:generate
 
 # Initialize project structure
-yarn icon:init
+npm run icon:init
 ```
 
 #### ✅ **SVG Validation**
@@ -532,13 +524,13 @@ bettergovicon validate ./my-icon.svg
 bettergovicon validate ./my-icon.svg --verbose
 ```
 
-**Option B: Using Yarn Scripts**
+**Option B: Using npm Scripts**
 ```bash
 # Basic validation
-yarn icon:validate ./my-icon.svg
+npm run icon:validate ./my-icon.svg
 
 # Verbose validation with details
-yarn icon:validate ./my-icon.svg --verbose
+npm run icon:validate ./my-icon.svg --verbose
 ```
 
 The validator checks for:
@@ -572,13 +564,13 @@ bettergovicon validate ./deped-logo.svg
 bettergovicon process ./deped-logo.svg
 ```
 
-**Option B: Using Yarn Scripts**
+**Option B: Using npm Scripts**
 ```bash
 # 1. Validate your SVG first
-yarn icon:validate ./deped-logo.svg
+npm run icon:validate ./deped-logo.svg
 
 # 2. Add the icon
-yarn icon:process ./deped-logo.svg
+npm run icon:process ./deped-logo.svg
 ```
 
 The CLI will ask:
@@ -630,7 +622,7 @@ The CLI will then:
    ```
 
 4. **Submit Pull Request**
-   - Use our [PR template](https://github.com/your-org/better-gov-logos/pull/new?template=feature_request.md)
+   - Use our [PR template](https://github.com/iyanski/better-gov-logos/pull/new?template=feature_request.md)
    - Link related issues
    - Include screenshots for visual changes
 
@@ -659,9 +651,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: support@ph-gov-icons.dev
-- 💬 **Discord**: [Join our community](https://discord.gg/ph-gov-icons)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/your-org/better-gov-logos/issues)
+- 📧 **Email**: iyanski@github.com
+- 💬 **GitHub Discussions**: [Join our community](https://github.com/iyanski/better-gov-logos/discussions)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/iyanski/better-gov-logos/issues)
 - 📖 **Documentation**: [https://iyanski.github.io/better-gov-logos](https://iyanski.github.io/better-gov-logos/)
 
 ## 🌟 Show Your Support
