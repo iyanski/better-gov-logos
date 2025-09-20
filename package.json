@@ -1,0 +1,258 @@
+{
+    "name": "better-gov-logos",
+    "version": "1.0.0",
+    "description": "A comprehensive library of Philippine government icons and symbols for developers",
+    "keywords": [
+        "philippine",
+        "government",
+        "icons",
+        "svg",
+        "react",
+        "vue",
+        "angular",
+        "web-components",
+        "css",
+        "font",
+        "malacanang",
+        "deped",
+        "doh",
+        "dotr",
+        "dpwh",
+        "da",
+        "dti",
+        "dole",
+        "dswd",
+        "dilg",
+        "dnd",
+        "dof",
+        "doj",
+        "denr",
+        "doe",
+        "dot",
+        "dost",
+        "dict",
+        "dfa",
+        "dbm",
+        "dar",
+        "comelec",
+        "coa",
+        "csc",
+        "chr",
+        "supreme-court",
+        "senate",
+        "congress",
+        "pnp",
+        "afp",
+        "mmda",
+        "pal"
+    ],
+    "author": {
+        "name": "Philippine Government Icons Team",
+        "email": "team@ph-gov-icons.dev",
+        "url": "https://ph-gov-icons.dev"
+    },
+    "license": "MIT",
+    "homepage": "https://ph-gov-icons.dev",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-org/better-gov-logos.git"
+    },
+    "bugs": {
+        "url": "https://github.com/your-org/better-gov-logos/issues"
+    },
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/your-org"
+    },
+    "engines": {
+        "node": ">=16.0.0",
+        "npm": ">=8.0.0"
+    },
+    "workspaces": [
+        "packages/*",
+        "tools/*"
+    ],
+    "private": true,
+    "scripts": {
+        "dev": "npm run dev --workspaces",
+        "build": "npm run build --workspaces",
+        "test": "npm run test --workspaces",
+        "lint": "npm run lint --workspaces",
+        "lint:fix": "npm run lint:fix --workspaces",
+        "type-check": "npm run type-check --workspaces",
+        "clean": "npm run clean --workspaces && rimraf dist",
+        "prebuild": "npm run clean",
+        "postbuild": "npm run generate:docs",
+        "generate:components": "node tools/build-scripts/generate-components.js",
+        "generate:docs": "node tools/build-scripts/generate-docs.js",
+        "optimize:icons": "node tools/icon-optimizer/index.js",
+        "generate:fonts": "node tools/font-generator/index.js",
+        "release": "npm run build && npm run test && npm run lint && changeset publish",
+        "release:dry": "npm run build && npm run test && npm run lint && changeset publish --dry-run",
+        "changeset": "changeset",
+        "version-packages": "changeset version",
+        "bump": "npm run version-packages && npm run build && npm run release",
+        "prepare": "husky install",
+        "precommit": "lint-staged",
+        "prepublishOnly": "npm run build && npm run test",
+        "icon:add": "node tools/cli/dist/index.js add",
+        "icon:validate": "node tools/cli/dist/index.js validate",
+        "icon:list": "node tools/cli/dist/index.js list",
+        "icon:generate": "node tools/cli/dist/index.js generate",
+        "icon:init": "node tools/cli/dist/index.js init"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.26.2",
+        "@commitlint/cli": "^17.7.1",
+        "@commitlint/config-conventional": "^17.7.0",
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.1",
+        "@rollup/plugin-typescript": "^11.1.5",
+        "@types/jest": "^29.5.8",
+        "@types/node": "^20.9.0",
+        "@typescript-eslint/eslint-plugin": "^6.12.0",
+        "@typescript-eslint/parser": "^6.12.0",
+        "autoprefixer": "^10.4.16",
+        "concurrently": "^8.2.2",
+        "cssnano": "^6.0.1",
+        "eslint": "^8.54.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "husky": "^8.0.3",
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "lint-staged": "^15.1.0",
+        "postcss": "^8.4.31",
+        "prettier": "^3.1.0",
+        "rimraf": "^5.0.5",
+        "rollup": "^4.6.1",
+        "rollup-plugin-dts": "^6.1.0",
+        "rollup-plugin-postcss": "^4.0.2",
+        "rollup-plugin-terser": "^7.0.2",
+        "svgo": "^3.0.2",
+        "ts-jest": "^29.1.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2",
+        "vite": "^4.5.0",
+        "vitest": "^0.34.6"
+    },
+    "dependencies": {
+        "tslib": "^2.6.2"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    },
+    "peerDependenciesMeta": {
+        "react": {
+            "optional": true
+        },
+        "react-dom": {
+            "optional": true
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,md,yml,yaml}": [
+            "prettier --write"
+        ],
+        "*.svg": [
+            "svgo --config tools/svgo.config.js"
+        ]
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ],
+        "rules": {
+            "type-enum": [
+                2,
+                "always",
+                [
+                    "feat",
+                    "fix",
+                    "docs",
+                    "style",
+                    "refactor",
+                    "perf",
+                    "test",
+                    "build",
+                    "ci",
+                    "chore",
+                    "revert"
+                ]
+            ]
+        }
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "jsdom",
+        "setupFilesAfterEnv": [
+            "<rootDir>/tests/setup.ts"
+        ],
+        "testMatch": [
+            "**/__tests__/**/*.test.{js,jsx,ts,tsx}",
+            "**/*.test.{js,jsx,ts,tsx}"
+        ],
+        "collectCoverageFrom": [
+            "packages/*/src/**/*.{js,jsx,ts,tsx}",
+            "!packages/*/src/**/*.d.ts",
+            "!packages/*/src/**/*.stories.{js,jsx,ts,tsx}"
+        ],
+        "coverageDirectory": "coverage",
+        "coverageReporters": [
+            "text",
+            "lcov",
+            "html"
+        ]
+    },
+    "prettier": {
+        "semi": true,
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 80,
+        "tabWidth": 2,
+        "useTabs": false
+    },
+    "eslintConfig": {
+        "extends": [
+            "eslint:recommended",
+            "@typescript-eslint/recommended",
+            "prettier"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint",
+            "prettier"
+        ],
+        "rules": {
+            "prettier/prettier": "error",
+            "@typescript-eslint/no-unused-vars": "error",
+            "@typescript-eslint/no-explicit-any": "warn",
+            "prefer-const": "error",
+            "no-var": "error"
+        },
+        "env": {
+            "browser": true,
+            "es2021": true,
+            "node": true
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead",
+        "not ie 11"
+    ],
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
+}
