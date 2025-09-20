@@ -5,7 +5,7 @@ export function generateAngularComponent(
   svgContent: string,
   metadata: IconMetadata
 ): string {
-  const componentName = metadata.acronym;
+  const componentName = `${metadata.acronym}Logo`;
   const displayName = metadata.displayName;
   const description = metadata.description;
   

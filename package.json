@@ -105,7 +105,7 @@
         "cli:install": "cd tools/cli && npm run build && npm link",
         "cli:uninstall": "npm unlink -g bettergovicon",
         "website:generate": "node tools/generate-website-data.js",
-        "website:build": "npm run website:generate && echo 'Website data generated successfully'",
+        "website:build": "npm run website:generate && echo 'Website data generated successfully'"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",

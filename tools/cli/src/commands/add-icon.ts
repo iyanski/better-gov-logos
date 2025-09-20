@@ -261,8 +261,8 @@ export async function addIcon(svgPath: string, options: any) {
     console.log(chalk.gray('5. Submit a pull request'));
 
     console.log(chalk.cyan('\n🚀 Usage examples:'));
-    console.log(chalk.gray('React: import { ' + metadata.acronym + ' } from "@ph-gov-icons/react"'));
-    console.log(chalk.gray('Vue: import { ' + metadata.acronym + ' } from "@ph-gov-icons/vue"'));
+    console.log(chalk.gray('React: import { ' + metadata.acronym + 'Logo } from "@ph-gov-icons/react"'));
+    console.log(chalk.gray('Vue: import { ' + metadata.acronym + 'Logo } from "@ph-gov-icons/vue"'));
     console.log(chalk.gray('CSS: <i class="ph-icon-' + iconName + ' ph-icon-lg"></i>'));
 
   } catch (error) {
@@ -343,7 +343,7 @@ async function updateIndexFiles(iconName: string, metadata: IconMetadata) {
     const indexPath = path.join(process.cwd(), `packages/${pkg}/src/index.ts`);
     if (await fs.pathExists(indexPath)) {
       const content = await fs.readFile(indexPath, 'utf8');
-      const exportLine = `export { ${metadata.acronym} } from './icons/${iconName}';`;
+      const exportLine = `export { ${metadata.acronym}Logo } from './icons/${iconName}';`;
       
       if (!content.includes(exportLine)) {
         await fs.writeFile(indexPath, content + '\n' + exportLine);

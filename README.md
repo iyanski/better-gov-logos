@@ -40,12 +40,12 @@ npm install
 #### React
 ```tsx
 // Import from local source (during development)
-import { DepartmentOfAgriculturalReform } from './packages/react/src/icons/department-of-agricultural-reform';
+import { DepartmentOfAgriculturalReformLogo } from './packages/react/src/icons/department-of-agricultural-reform';
 
 function App() {
   return (
     <div>
-      <DepartmentOfAgriculturalReform size={24} color="#0033A0" />
+      <DepartmentOfAgriculturalReformLogo size={24} color="#0033A0" />
     </div>
   );
 }
@@ -55,13 +55,13 @@ function App() {
 ```vue
 <template>
   <div>
-    <DepartmentOfAgriculturalReform :size="24" color="#0033A0" />
+    <DepartmentOfAgriculturalReformLogo :size="24" color="#0033A0" />
   </div>
 </template>
 
 <script setup>
 // Import from local source (during development)
-import DepartmentOfAgriculturalReform from './packages/vue/src/icons/department-of-agricultural-reform.vue';
+import DepartmentOfAgriculturalReformLogo from './packages/vue/src/icons/department-of-agricultural-reform.vue';
 </script>
 ```
 
@@ -286,7 +286,7 @@ The CLI automatically recognizes these Philippine government agencies:
 ### Tree-shaking (React/Vue)
 ```tsx
 // ✅ Good - imports only what you need
-import { DepartmentOfAgriculturalReform } from './packages/react/src/icons/department-of-agricultural-reform';
+import { DepartmentOfAgriculturalReformLogo } from './packages/react/src/icons/department-of-agricultural-reform';
 
 // ❌ Avoid - imports entire library
 import * as PhIcons from './packages/react/src';
@@ -294,7 +294,7 @@ import * as PhIcons from './packages/react/src';
 
 ### Custom Styling
 ```tsx
-<DepartmentOfAgriculturalReform 
+<DepartmentOfAgriculturalReformLogo 
   size={24} 
   color="#0033A0" 
   className="custom-icon"
@@ -305,7 +305,7 @@ import * as PhIcons from './packages/react/src';
 ### Dynamic Icons
 ```tsx
 const iconMap = {
-  'department-of-agricultural-reform': DepartmentOfAgriculturalReform,
+  'department-of-agricultural-reform': DepartmentOfAgriculturalReformLogo,
   // Add more icons as they become available
 };
 

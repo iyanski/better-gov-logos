@@ -88,7 +88,7 @@ async function updatePackageIndex(
   }
   
   const content = await fs.readFile(indexPath, 'utf8');
-  const exportLine = `export { ${metadata.acronym} } from './icons/${iconName}';`;
+  const exportLine = `export { ${metadata.acronym}Logo } from './icons/${iconName}';`;
   
   if (!content.includes(exportLine)) {
     await fs.writeFile(indexPath, content + '\n' + exportLine);
@@ -261,13 +261,13 @@ async function generateTestFile(iconName: string, metadata: IconMetadata): Promi
         <h4>React</h4>
         <div class="code-sample">
             <button class="copy-btn" onclick="copyCode(this, 'react-code')">Copy</button>
-            <pre id="react-code">import { ${metadata.acronym} } from '@ph-gov-icons/react';
+            <pre id="react-code">import { ${metadata.acronym}Logo } from '@ph-gov-icons/react';
 
 // Basic usage
-&lt;${metadata.acronym} size={24} color="#1B5E20" /&gt;
+&lt;${metadata.acronym}Logo size={24} color="#1B5E20" /&gt;
 
 // With custom props
-&lt;${metadata.acronym} 
+&lt;${metadata.acronym}Logo 
   size={32} 
   color="#0033A0" 
   className="my-icon"
@@ -279,11 +279,11 @@ async function generateTestFile(iconName: string, metadata: IconMetadata): Promi
         <div class="code-sample">
             <button class="copy-btn" onclick="copyCode(this, 'vue-code')">Copy</button>
             <pre id="vue-code">&lt;template&gt;
-  &lt;${metadata.acronym} :size="24" color="#1B5E20" /&gt;
+  &lt;${metadata.acronym}Logo :size="24" color="#1B5E20" /&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
-import { ${metadata.acronym} } from '@ph-gov-icons/vue'
+import { ${metadata.acronym}Logo } from '@ph-gov-icons/vue'
 &lt;/script&gt;</pre>
         </div>
         
@@ -291,14 +291,14 @@ import { ${metadata.acronym} } from '@ph-gov-icons/vue'
         <div class="code-sample">
             <button class="copy-btn" onclick="copyCode(this, 'svelte-code')">Copy</button>
             <pre id="svelte-code">&lt;script&gt;
-  import { ${metadata.acronym} } from '@ph-gov-icons/svelte';
+  import { ${metadata.acronym}Logo } from '@ph-gov-icons/svelte';
 &lt;/script&gt;
 
 &lt;!-- Basic usage --&gt;
-&lt;${metadata.acronym} size={24} color="#1B5E20" /&gt;
+&lt;${metadata.acronym}Logo size={24} color="#1B5E20" /&gt;
 
 &lt;!-- With event handlers --&gt;
-&lt;${metadata.acronym} 
+&lt;${metadata.acronym}Logo 
   size={32} 
   color="#0033A0" 
   className="my-icon"

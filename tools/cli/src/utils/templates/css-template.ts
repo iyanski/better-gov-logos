@@ -18,7 +18,7 @@ export function generateCssClass(
   return `/* ${displayName} Icon */
 /* ${description} */
 
-.ph-icon-${iconName}::before {
+.ph-${componentName.toLowerCase()}-icon::before {
   content: '';
   display: inline-block;
   width: 1em;
@@ -30,7 +30,7 @@ export function generateCssClass(
   vertical-align: middle;
 }
 
-.ph-icon-${iconName} {
+.ph-${componentName.toLowerCase()}-icon {
   font-family: 'Philippine Government Icons';
   font-style: normal;
   font-weight: normal;
@@ -42,43 +42,43 @@ export function generateCssClass(
 }
 
 /* Size variants */
-.ph-icon-${iconName}.ph-icon-sm {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-sm {
   font-size: 16px;
 }
 
-.ph-icon-${iconName}.ph-icon-md {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-md {
   font-size: 24px;
 }
 
-.ph-icon-${iconName}.ph-icon-lg {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-lg {
   font-size: 32px;
 }
 
-.ph-icon-${iconName}.ph-icon-xl {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-xl {
   font-size: 48px;
 }
 
 /* Color variants */
-.ph-icon-${iconName}.ph-icon-primary {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-primary {
   color: #0033A0;
 }
 
-.ph-icon-${iconName}.ph-icon-secondary {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-secondary {
   color: #1B5E20;
 }
 
-.ph-icon-${iconName}.ph-icon-accent {
+.ph-${componentName.toLowerCase()}-icon.ph-icon-accent {
   color: #FF6B35;
 }
 
 /* Hover effects */
-.ph-icon-${iconName}:hover {
+.ph-${componentName.toLowerCase()}-icon:hover {
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
 
 /* Focus styles for accessibility */
-.ph-icon-${iconName}:focus {
+.ph-${componentName.toLowerCase()}-icon:focus {
   outline: 2px solid #0033A0;
   outline-offset: 2px;
 }

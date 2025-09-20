@@ -5,7 +5,7 @@ export function generateSvelteComponent(
   svgContent: string,
   metadata: IconMetadata
 ): string {
-  const componentName = metadata.acronym;
+  const componentName = `${metadata.acronym}Logo`;
   
   return `<script lang="ts">
   export let size: number = 24;

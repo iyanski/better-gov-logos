@@ -241,7 +241,7 @@ async function updateIndexFiles(iconName: string, acronym: string) {
     const indexPath = path.join(process.cwd(), `packages/${pkg}/src/index.ts`);
     if (await fs.pathExists(indexPath)) {
       const content = await fs.readFile(indexPath, 'utf8');
-      const exportLine = `export { ${acronym} } from './icons/${iconName}';`;
+      const exportLine = `export { ${acronym}Logo } from './icons/${iconName}';`;
       const exportLineWithNewline = `\n${exportLine}`;
       
       // Remove the export line
