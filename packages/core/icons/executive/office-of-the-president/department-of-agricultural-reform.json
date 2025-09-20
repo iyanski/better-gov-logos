@@ -1,0 +1,23 @@
+{
+  "name": "department-of-agricultural-reform",
+  "displayName": "Department of Agricultural Reform",
+  "officialName": "Department of Agricultural Reform",
+  "acronym": "DAR",
+  "branch": "executive",
+  "category": "office-of-the-president",
+  "description": "Official logo of Department of Agricultural Reform",
+  "keywords": [
+    "dar",
+    "department of agricultural reform",
+    "government",
+    "philippines"
+  ],
+  "author": "Ian Tusil",
+  "version": "1.0.0",
+  "license": "MIT",
+  "isOfficial": true,
+  "hasPermission": true,
+  "officialWebsite": "https://dar.gov.ph",
+  "createdAt": "2025-09-20T14:15:29.313Z",
+  "updatedAt": "2025-09-20T14:15:29.315Z"
+}
