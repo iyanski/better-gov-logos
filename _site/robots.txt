@@ -1,1 +1,1 @@
-Sitemap: https://iyanski.github.io/better-gov-logos/sitemap.xml
+Sitemap: https://bettergovlogos.github.io/sitemap.xml
