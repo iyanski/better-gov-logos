@@ -8,6 +8,7 @@ import { validateIcon } from './commands/validate-icon';
 import { listIcons } from './commands/list-icons';
 import { generateComponents } from './commands/generate-components';
 import { processIcon } from './commands/process-icon';
+import { removeIcon } from './commands/remove-icon';
 import { version } from '../package.json';
 
 const program = new Command();
@@ -84,6 +85,20 @@ program
       await generateComponents(options);
     } catch (error) {
       console.error(chalk.red('Error generating components:'), error);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('remove <icon-name>')
+  .description('Remove an icon and all associated files')
+  .option('-f, --force', 'Skip confirmation prompts')
+  .option('--dry-run', 'Show what would be removed without making changes')
+  .action(async (iconName: string, options: any) => {
+    try {
+      await removeIcon(iconName, options);
+    } catch (error) {
+      console.error(chalk.red('Error removing icon:'), error);
       process.exit(1);
     }
   });

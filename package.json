@@ -100,7 +100,10 @@
         "icon:validate": "node tools/cli/dist/index.js validate",
         "icon:list": "node tools/cli/dist/index.js list",
         "icon:generate": "node tools/cli/dist/index.js generate",
-        "icon:init": "node tools/cli/dist/index.js init"
+        "icon:remove": "node tools/cli/dist/index.js remove",
+        "icon:init": "node tools/cli/dist/index.js init",
+        "cli:install": "cd tools/cli && npm run build && npm link",
+        "cli:uninstall": "npm unlink -g bettergovicon"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",

@@ -257,6 +257,7 @@ export async function addIcon(svgPath: string, options: any) {
     console.log(chalk.gray('2. Review the generated components'));
     console.log(chalk.gray('3. Test the components in your framework'));
     console.log(chalk.gray('4. Update documentation if needed'));
+    console.log(chalk.cyan('\n💡 Pro tip: Include the test file in your Pull Request for easy review!'));
     console.log(chalk.gray('5. Submit a pull request'));
 
     console.log(chalk.cyan('\n🚀 Usage examples:'));

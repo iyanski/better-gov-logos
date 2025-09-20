@@ -111,6 +111,15 @@ function displayTable(icons: IconInfo[]) {
       console.log(chalk.white(`  ${icon.acronym.padEnd(8)} ${icon.displayName}`));
       console.log(chalk.gray(`    ${icon.description}`));
       console.log(chalk.gray(`    Category: ${icon.category} | Author: ${icon.author} | Version: ${icon.version}`));
+      
+      // Check if test file exists and provide link
+      const testFilePath = path.join(process.cwd(), `test-${icon.name}.html`);
+      if (fs.existsSync(testFilePath)) {
+        console.log(chalk.cyan(`    📄 Test file: test-${icon.name}.html`));
+        console.log(chalk.gray(`    💡 Open in browser to see usage examples and visual preview`));
+      } else {
+        console.log(chalk.yellow(`    ⚠️  Test file not found: test-${icon.name}.html`));
+      }
       console.log();
     });
   });
@@ -120,4 +129,15 @@ function displayTable(icons: IconInfo[]) {
   Object.entries(groupedIcons).forEach(([branch, branchIcons]) => {
     console.log(chalk.gray(`  ${branch}: ${branchIcons.length} icons`));
   });
+  
+  // Test file instructions
+  console.log(chalk.cyan('\n🧪 Test Files:'));
+  console.log(chalk.gray('  • Test files contain visual previews and usage examples'));
+  console.log(chalk.gray('  • Open test-{icon-name}.html in your browser to see:'));
+  console.log(chalk.gray('    - Visual preview in different sizes'));
+  console.log(chalk.gray('    - CSS icon demonstrations'));
+  console.log(chalk.gray('    - Color variants'));
+  console.log(chalk.gray('    - Framework code examples (React, Vue, Svelte, CSS, Web Components)'));
+  console.log(chalk.gray('    - Copy-to-clipboard functionality'));
+  console.log(chalk.gray('  • Use for visual verification and documentation'));
 }

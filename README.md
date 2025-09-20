@@ -101,6 +101,17 @@ import { PhFlag, Malacanang, DepEd } from '@ph-gov-icons/vue';
 The `bettergovicon` CLI tool makes it incredibly easy to add new Philippine government icons to the library.
 
 #### **Global Installation**
+
+**Option 1: Using npm script (Recommended)**
+```bash
+# Install the CLI tool using the project's npm script
+npm run cli:install
+
+# Verify installation
+bettergovicon --version
+```
+
+**Option 2: Manual installation**
 ```bash
 # Install globally from the project
 cd tools/cli
@@ -113,7 +124,18 @@ npm link
 bettergovicon --version
 ```
 
+**Uninstall the CLI tool**
+```bash
+# Remove the global CLI tool
+npm run cli:uninstall
+
+# Or manually
+npm unlink -g bettergovicon
+```
+
 #### **Using the CLI Tool**
+
+**Option 1: Direct CLI Commands**
 ```bash
 # Process with auto-detection (recommended for common agencies)
 bettergovicon process DA.svg
@@ -124,14 +146,53 @@ bettergovicon add path/to/your-icon.svg
 # Validate an SVG before processing
 bettergovicon validate path/to/your-icon.svg
 
-# List all icons in the library
+# List all icons in the library (includes test file links)
 bettergovicon list
 
 # Generate components for all icons
 bettergovicon generate
 
+# Remove an icon and all associated files
+bettergovicon remove icon-name
+
+# Remove with dry run (preview only)
+bettergovicon remove icon-name --dry-run
+
+# Remove without confirmation prompts
+bettergovicon remove icon-name --force
+
 # Get help
 bettergovicon --help
+```
+
+**Option 2: Using npm Scripts**
+```bash
+# Process with auto-detection
+npm run icon:process path/to/DA.svg
+
+# Interactive mode
+npm run icon:add path/to/your-icon.svg
+
+# Validate an SVG
+npm run icon:validate path/to/your-icon.svg
+
+# List all icons
+npm run icon:list
+
+# Generate components
+npm run icon:generate
+
+# Remove an icon
+npm run icon:remove icon-name
+
+# Remove with dry run
+npm run icon:remove icon-name -- --dry-run
+
+# Remove without confirmation
+npm run icon:remove icon-name -- --force
+
+# Initialize project
+npm run icon:init
 ```
 
 #### **Auto-Detection Support**
@@ -298,6 +359,19 @@ We welcome contributions from the community! Here's how you can help:
    npm test
    ```
 
+### 🧪 Test File Generation
+
+When you add a new icon using the CLI tool, it automatically generates a test file (`test-{icon-name}.html`) that includes:
+
+- **Visual Preview**: Shows the icon in different sizes (24px, 48px, 96px)
+- **CSS Icons**: Demonstrates font-based icon usage with size variants
+- **Color Variants**: Shows primary, secondary, and accent color options
+- **Framework Examples**: Code samples for React, Vue, Svelte, CSS, and Web Components
+- **Copy-to-Clipboard**: Easy copying of code examples
+- **Metadata Display**: Complete icon information and usage details
+
+**Include the test file in your Pull Request** - it helps reviewers verify the icon looks correct and provides examples for documentation.
+
 ### 📝 Adding New Icons
 
 We've made it super easy to add new government icons using our `bettergovicon` CLI tool! Here are two ways to contribute:
@@ -319,7 +393,16 @@ We've made it super easy to add new government icons using our `bettergovicon` C
    bettergovicon add path/to/your-icon.svg
    ```
 
-   **Option B: Using Yarn Scripts**
+   **Option B: Using npm Scripts**
+   ```bash
+   # Process with auto-detection
+   npm run icon:process path/to/DA.svg
+   
+   # Interactive mode
+   npm run icon:add path/to/your-icon.svg
+   ```
+
+   **Option C: Using Yarn Scripts**
    ```bash
    # Process with auto-detection
    yarn icon:process path/to/DA.svg
@@ -345,6 +428,7 @@ We've made it super easy to add new government icons using our `bettergovicon` C
    - ⚡ Generate components for all frameworks
    - 📝 Create metadata
    - 🔄 Update index files
+   - 🧪 Generate test file (`test-{icon-name}.html`) for visual verification
 
 #### 📋 **Manual Way: Step-by-Step**
 
@@ -396,11 +480,20 @@ bettergovicon add path/to/icon.svg
 # Validate an SVG before adding
 bettergovicon validate path/to/icon.svg
 
-# List all existing icons
+# List all existing icons (includes test file links)
 bettergovicon list
 
 # Generate components for all icons
 bettergovicon generate
+
+# Remove an icon and all associated files
+bettergovicon remove icon-name
+
+# Remove with dry run (preview only)
+bettergovicon remove icon-name --dry-run
+
+# Remove without confirmation prompts
+bettergovicon remove icon-name --force
 
 # Get help
 bettergovicon --help
@@ -528,6 +621,7 @@ The CLI will then:
    - Follow coding standards
    - Add tests for new features
    - Update documentation
+   - **Include test file**: The CLI automatically generates `test-{icon-name}.html` - include this in your PR for visual verification
 
 3. **Test Your Changes**
    ```bash
