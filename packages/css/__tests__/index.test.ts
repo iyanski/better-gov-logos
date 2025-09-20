@@ -16,11 +16,6 @@ describe('@ph-gov-icons/css', () => {
     expect(element.className).toContain('ph-icon-sm');
   });
 
-  it('should support color variants', () => {
-    const element = document.createElement('div');
-    element.className = 'ph-icon ph-icon-primary';
-    expect(element.className).toContain('ph-icon-primary');
-  });
 
   it('should have proper CSS structure', () => {
     // Test that CSS can be loaded (mock test)

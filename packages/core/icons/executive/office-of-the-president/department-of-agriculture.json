@@ -1,0 +1,23 @@
+{
+  "name": "department-of-agriculture",
+  "displayName": "Department of Agriculture",
+  "officialName": "Department of Agriculture",
+  "acronym": "DA",
+  "branch": "executive",
+  "category": "office-of-the-president",
+  "description": "Official logo of Department of Agriculture",
+  "keywords": [
+    "da",
+    "department of agriculture",
+    "government",
+    "philippines"
+  ],
+  "author": "@iyanski",
+  "version": "1.0.0",
+  "license": "MIT",
+  "isOfficial": true,
+  "hasPermission": true,
+  "officialWebsite": "",
+  "createdAt": "2025-09-20T15:30:25.568Z",
+  "updatedAt": "2025-09-20T15:30:25.570Z"
+}

@@ -89,42 +89,6 @@ export function generateSvelteComponent(
     height: 48px;
   }
   
-  /* Color variants */
-  .ph-icon-primary {
-    color: #0033A0;
-  }
-  
-  .ph-icon-secondary {
-    color: #1B5E20;
-  }
-  
-  .ph-icon-accent {
-    color: #FF6B35;
-  }
-  
-  .ph-icon-success {
-    color: #28a745;
-  }
-  
-  .ph-icon-warning {
-    color: #ffc107;
-  }
-  
-  .ph-icon-danger {
-    color: #dc3545;
-  }
-  
-  .ph-icon-info {
-    color: #17a2b8;
-  }
-  
-  .ph-icon-light {
-    color: #f8f9fa;
-  }
-  
-  .ph-icon-dark {
-    color: #343a40;
-  }
   
   /* Accessibility */
   .ph-icon:focus-visible {

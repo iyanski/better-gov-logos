@@ -136,7 +136,6 @@ function displayTable(icons: IconInfo[]) {
   console.log(chalk.gray('  • Open test-{icon-name}.html in your browser to see:'));
   console.log(chalk.gray('    - Visual preview in different sizes'));
   console.log(chalk.gray('    - CSS icon demonstrations'));
-  console.log(chalk.gray('    - Color variants'));
   console.log(chalk.gray('    - Framework code examples (React, Vue, Svelte, CSS, Web Components)'));
   console.log(chalk.gray('    - Copy-to-clipboard functionality'));
   console.log(chalk.gray('  • Use for visual verification and documentation'));

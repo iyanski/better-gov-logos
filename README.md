@@ -215,7 +215,7 @@ The CLI automatically recognizes these Philippine government agencies:
 1. **SVG Processing**: Normalizes viewBox to 24x24, optimizes for performance
 2. **Component Generation**: Creates React, Vue, Angular, Web Components, and CSS
 3. **File Organization**: Creates proper directory structure and updates index files
-4. **Test Page**: Generates visual test page with all size and color variants
+4. **Test Page**: Generates visual test page with all size variants
 5. **Metadata**: Creates comprehensive icon metadata and documentation
 
 #### **Choosing Between Options**
@@ -356,7 +356,6 @@ When you add a new icon using the CLI tool, it automatically generates a test fi
 
 - **Visual Preview**: Shows the icon in different sizes (24px, 48px, 96px)
 - **CSS Icons**: Demonstrates font-based icon usage with size variants
-- **Color Variants**: Shows primary, secondary, and accent color options
 - **Framework Examples**: Code samples for React, Vue, Svelte, CSS, and Web Components
 - **Copy-to-Clipboard**: Easy copying of code examples
 - **Metadata Display**: Complete icon information and usage details

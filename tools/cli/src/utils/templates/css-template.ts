@@ -58,18 +58,6 @@ export function generateCssClass(
   font-size: 48px;
 }
 
-/* Color variants */
-.ph-${componentName.toLowerCase()}-icon.ph-icon-primary {
-  color: #0033A0;
-}
-
-.ph-${componentName.toLowerCase()}-icon.ph-icon-secondary {
-  color: #1B5E20;
-}
-
-.ph-${componentName.toLowerCase()}-icon.ph-icon-accent {
-  color: #FF6B35;
-}
 
 /* Hover effects */
 .ph-${componentName.toLowerCase()}-icon:hover {

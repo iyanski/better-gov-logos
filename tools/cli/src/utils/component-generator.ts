@@ -143,9 +143,6 @@ async function generateTestFile(iconName: string, metadata: IconMetadata): Promi
         .ph-icon-${iconName}.ph-icon-lg { font-size: 32px; }
         .ph-icon-${iconName}.ph-icon-xl { font-size: 48px; }
         
-        .ph-icon-${iconName}.ph-icon-primary { color: #0033A0; }
-        .ph-icon-${iconName}.ph-icon-secondary { color: #1B5E20; }
-        .ph-icon-${iconName}.ph-icon-accent { color: #FF6B35; }
         
         .ph-icon-${iconName}:hover {
             opacity: 0.8;
@@ -234,21 +231,6 @@ async function generateTestFile(iconName: string, metadata: IconMetadata): Promi
         </div>
     </div>
 
-    <div class="icon-test">
-        <h3>Color Variants</h3>
-        <div class="icon-container">
-            <span class="icon-label">Primary:</span>
-            <i class="ph-icon-${iconName} ph-icon-primary ph-icon-lg"></i>
-        </div>
-        <div class="icon-container">
-            <span class="icon-label">Secondary:</span>
-            <i class="ph-icon-${iconName} ph-icon-secondary ph-icon-lg"></i>
-        </div>
-        <div class="icon-container">
-            <span class="icon-label">Accent:</span>
-            <i class="ph-icon-${iconName} ph-icon-accent ph-icon-lg"></i>
-        </div>
-    </div>
 
     <div class="icon-test">
         <h3>Metadata</h3>
@@ -311,16 +293,14 @@ import { ${metadata.acronym}Logo } from '@ph-gov-icons/vue'
         <div class="code-sample">
             <button class="copy-btn" onclick="copyCode(this, 'css-code')">Copy</button>
             <pre id="css-code">&lt;!-- Basic usage --&gt;
-&lt;i class="ph-icon-${iconName} ph-icon-lg ph-icon-primary"&gt;&lt;/i&gt;
+&lt;i class="ph-icon-${iconName} ph-icon-lg"&gt;&lt;/i&gt;
 
 &lt;!-- Different sizes --&gt;
 &lt;i class="ph-icon-${iconName} ph-icon-sm"&gt;&lt;/i&gt;
 &lt;i class="ph-icon-${iconName} ph-icon-md"&gt;&lt;/i&gt;
 &lt;i class="ph-icon-${iconName} ph-icon-xl"&gt;&lt;/i&gt;
 
-&lt;!-- Color variants --&gt;
-&lt;i class="ph-icon-${iconName} ph-icon-secondary"&gt;&lt;/i&gt;
-&lt;i class="ph-icon-${iconName} ph-icon-accent"&gt;&lt;/i&gt;</pre>
+</pre>
         </div>
         
         <h4>Web Components</h4>
